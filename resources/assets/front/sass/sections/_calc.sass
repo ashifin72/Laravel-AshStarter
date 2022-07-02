@@ -1,0 +1,94 @@
+.calc
+  padding-bottom: 50px
+  &__header
+    height: 350px
+    background: url("../../img/calc-header.jpg") no-repeat top left
+    background-size: cover
+    display: flex
+    .title-block
+      margin: 100px auto
+      position: relative
+      width: 740px
+      height: 100px
+      //border: 2px solid #3B5998
+      transform: rotate(-10deg)
+      h1
+        font-size: 29px
+        text-transform: uppercase
+        .t-calc1
+          position: absolute
+          letter-spacing: 17px
+          margin-top: 20px
+          line-height: 20px
+          top: 5px
+        .t-calc2
+          position: absolute
+          top: 31px
+          display: block
+          font-size: 45px
+          color: red
+          font-weight: 900
+          letter-spacing: 2px
+        .t-calc3
+          position: absolute
+          font-size: 100px
+          letter-spacing: 5px
+          top: 0
+          right: 0
+          line-height: 100px
+          font-weight: 900
+  &__row
+    margin-top: 25px
+    border-bottom: 2px solid $white
+    padding-bottom: 10px
+  .button-block
+    display: flex
+    margin-top: 25px
+    .order-consult
+      margin-left: 25px
+  &__body
+    background: $foncolor2
+    .calc__content
+      background: $foncolor
+      padding-bottom: 20px
+    .calc__title
+      background: $darc4
+      border-radius: 20px 20px 0 0
+      display: flex
+      height: 65px
+      font-size: 35px
+      color: $white
+      position: absolute
+      bottom: 0
+      margin-bottom: -1px
+      right: 0
+      left: 0
+      line-height: 65px
+      letter-spacing: 7px
+      justify-content: center
+      span
+        color: $accent
+  &__btn
+    background: $accent
+    color: $white
+    font-weight: 600
+    width: 340px
+    position: absolute
+    right: 0
+    top: 15px
+    text-transform: uppercase
+    &:hover
+      color: $white2
+  &__result
+    background: $foncolor2
+
+  h2
+    margin-top: 15px
+    color: $darc3
+    font-size: 25px
+
+
+  .form-check
+    input[type="checkbox"]
+      width: 20px
+

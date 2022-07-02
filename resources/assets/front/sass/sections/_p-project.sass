@@ -1,0 +1,165 @@
+.p-project
+  padding-bottom: 50px
+  &__body
+    width: 100%
+  &__header-fon
+    position: absolute
+    left: 0
+    z-index: -1
+    height: 365px
+    width: 100%
+    margin: 6px
+    &:before,
+    &:after
+      content: ""
+      height: 100%
+      position: absolute
+      bottom: 0
+      background: $white2
+    &:before
+      left: 0
+      width: 20%
+      top: 25px
+      transform: skew(0deg, 10deg)
+    &:after
+      right: 0
+      height: 70%
+      width: 80%
+      transform: skew(0deg, -5deg)
+  &__header-content
+    position: relative
+    padding: 50px 0 50px 0
+    z-index: 50
+    .img-header
+      width: 100%
+      border-radius: 25px
+    .title-block
+      background: $foncolor
+      position: relative
+      span
+        display: block
+        line-height: 30px
+      .data-project
+        text-transform: uppercase
+      .data-cat
+        font-size: 25px
+      .title-project
+        position: absolute
+        text-transform: uppercase
+        font-size: 40px
+        top: -5px
+        left: 220px
+        font-weight: 900
+    .data-block
+      padding-top: 20px
+      padding-left: 200px
+      p svg
+        font-size: 20px
+        position: absolute
+        top: 50%
+        left: 0
+        margin-top: -8px
+        line-height: 20px
+      p
+        font-size: 14px
+        position: relative
+        padding-left: 40px
+        span
+          font-size: 16px
+          font-weight: 600
+  &__content
+    border-left: 1px solid $darc3
+    padding:  0 25px 30px
+  &__btn
+    position: relative
+    text-align: center
+    left: 50%
+    .card__order
+      border: $darc3 solid 1px
+      height: 40px
+      width: 200px
+      position: absolute
+      left: -100px
+      line-height: 40px
+      border-radius: 20px
+      background: $white2
+      color: $darc
+      &:hover
+        text-decoration: none
+      &::before
+        content: ''
+        position: absolute
+        background: red
+        width: 16px
+        height: 16px
+        right: -8px
+        border-radius: 50%
+        top: 12px
+
+.driver
+  margin-top: 10px
+  position: relative
+  height: 180px
+  .wordpress
+    position: absolute
+    height: 175px
+    width: 560px
+    left: -25%
+    background: $white2
+    p
+      margin: 20px 100px 20px auto
+      font-size: 25px
+      text-align: center
+      z-index: 10
+      span
+        text-transform: uppercase
+        z-index: 10
+      .block
+        display: block
+        font-weight: 600
+        z-index: 10
+
+  &__img
+    position: absolute
+    right: -85px
+    top: 0
+    display: block
+    z-index: 1
+  &__name
+    z-index: 25
+.feedback
+  margin-top: 20px
+  background: $white2
+  padding: 10px
+  &__title-block
+    position: relative
+    width: 100%
+    h4
+      width: 150px
+    span
+      display: block
+    .data-cat
+      position: absolute
+      top: 0
+      margin-top: 5px
+      left: 150px
+      text-transform: uppercase
+      font-size: 20px
+  &__content
+    background: $foncolor
+    font-size: 14px
+    font-style: italic
+    .screen
+      display: block
+      margin: 0 auto
+      width: 80%
+  .col-img
+    display: flex
+    justify-content: center
+    padding-left: 10px
+    img
+      width: 100px
+      height: 100px
+      border-radius: 50%
+      display: block
+      margin-top: 15px

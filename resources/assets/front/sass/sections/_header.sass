@@ -1,0 +1,210 @@
+.header
+  position: relative
+  top: 0
+  width: 100%
+.top-line
+  width: 100%
+  //position: relative
+  //margin: auto
+  color: #fff
+  min-height: $size
+  top: 0
+  border-bottom: 3px solid $color-title
+  background-color: $color-header
+  //display: flex
+  //align-items: center
+  //justify-content: space-between
+  z-index: 101
+  box-shadow: 0px 1px 8px #00000070
+  @include media-breakpoint-down(sm)
+    flex-direction: column
+    height: $size * 2
+    align-items: start
+
+
+
+
+.top-line__logo
+  padding: 10px
+  justify-content: start
+  @include media-breakpoint-down(sm)
+  .logo
+
+    img
+      width: $size * 2.5
+  .navbar__locale
+    position: absolute
+    top: 0
+    left: $size * 3
+    margin-left: 80%
+    padding-top: 20px
+    display: inline-block
+    width: 35px
+    height: $size
+    text-align: center
+    background: $darc3
+    z-index: 100
+    a
+      color: $white2
+      &:hover
+        color: $white
+        text-decoration: none
+.top-line__menu
+  display: flex
+  justify-content: center
+
+.menu-wrapper, .menu-mobile
+  &__btn
+    display: none
+    width: $size
+    height: $size
+    background: $accent
+    background-image: url("../../img/bars-solid.svg")
+    background-repeat: no-repeat
+    background-position: center
+
+  ul
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 0
+    padding: 0
+  &__top
+    display: flex
+  .menu-item
+    list-style-type: none
+    margin-right: 20px
+    margin-top: 10px
+    position: relative
+    line-height: 65px
+    a
+      color: $text-header
+      font-size: 14px
+      font-weight: 500
+      text-transform: uppercase
+      text-decoration: none
+      &:hover, &:focus
+        color: $text-header
+        text-decoration: none
+
+
+
+.top-line__phone
+  padding: 10px
+  text-align: right
+  @include media-breakpoint-down(sm)
+    //padding-left: 20px
+    //padding-top: 15px
+.phone-wrapper
+  display: flex
+  align-items: center
+  justify-content: center
+  //line-height: 1
+  &__ikon
+    width: 30px
+    height: 40px
+
+  &__text
+    display: flex
+    flex-direction: column
+    line-height: 1.6
+
+    padding-left: 5px
+
+  &__phone a
+    font-weight: bold
+    font-family: $userfont, sans-serif
+    color: $text-header
+    text-decoration: none
+    &:hover, &:focus
+      color: $text-header
+      text-decoration: none
+  &__time
+    font-size: 12px
+    color: $fon2
+
+
+// мобильное меню
+.menu-mobile
+  display: none
+  background-color: $color-header
+  width: 360px
+  position: absolute
+  padding-bottom: 25px
+  margin-top: 6px
+  left: -400px
+  z-index: 1000
+  transition: 0.5s
+  border: 3px solid $color-title
+  .menu-item
+    padding-left: 15px
+    line-height: 1.5
+    a
+      color: $fon2
+  .dropdown
+    &:after
+      left: 130px
+    .submenu
+      margin-left: -15px
+
+  &__active
+    left: 0
+    display: flex
+    //justify-content: space-around
+    position: absolute
+    //z-index: 1000
+    //top: $size
+    transition: 0.5s
+
+
+
+// ≥992px
++media-breakpoint-down(lg)
+  .menu-wrapper
+    position: relative
+    &__top
+      display: none
+    &__btn
+      display: block
+  .menu-mobile
+    display: flex
+    flex-direction: column
+    padding-left: 15px
+    ul
+      flex-direction: column
+      align-items: start
+      padding-top: 25px
+      padding-left: 25px
++media-breakpoint-down(md)
+  .top-line__menu
+    position: relative
+    .menu-wrapper__btn
+      position: absolute
+      top: 0
+      right: 0
+      margin-right: 15px
+
+  .menu-mobile
+    flex-direction: column
+    padding-left: 15px
+    ul
+      flex-direction: column
+      align-items: start
+      padding-top: 25px
+      padding-left: 25px
+
+
+
+
+// ≥576px
++media-breakpoint-down(sm)
+  .menu-wrapper__btn
+    //right: -$size * 0.8
+  .menu-mobile
+    .dropdown
+      .submenu
+        position: static
+    &__active
+      justify-content: flex-start
+    ul
+      flex-direction: column

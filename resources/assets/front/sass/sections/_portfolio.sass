@@ -1,0 +1,323 @@
+// SLIDER
+.home-slider
+  position: relative
+  padding-top: $size
+  padding-bottom: $size
+  .title-block
+    position: relative
+    background-color: $white
+    width: auto
+    padding: 5px 50px 5px  20px
+    text-align: left
+    max-width: 520px
+    height: 80px
+    border: 1px solid $color-title
+    margin:  0 auto 80px
+    @include media-breakpoint-down(sm)
+      width: 100%
+      padding: 0px 20px 20px  20px
+      text-align: center
+      margin:  0 auto 100px
+    h2
+      font-size: 55px
+      font-weight: 900
+      text-align: left
+      @include media-breakpoint-down(md)
+        font-size: 45px
+        line-height: 70px
+      @include media-breakpoint-down(sm)
+        font-size: 32px
+        text-align: center
+    &__desc
+      padding-bottom: 20px !important
+      text-align: center
+      a
+        color: $accent
+        font-size: 20px
+
+
+.slider
+  &__brand
+    position: absolute
+    background-color: $darc
+    top: -20px
+    right: -10px
+    width: 150px
+    padding: 5px
+    margin-top: 37px
+    margin-right: -65px
+    @include media-breakpoint-down(sm)
+      right: 50%
+      top: 20px
+      margin-right: -75px
+    img
+      width: 140px
+      @include media-breakpoint-down(sm)
+        width: 120px
+        height: auto
+
+.slider-container
+  width: 100%
+  height: 500px
+  overflow: hidden
+  position: relative
+  background: $color-header
+  @include media-breakpoint-down(sm)
+    height: 500px
+
+
+.slider-img
+  height: 500px
+  width: 75%
+  overflow: hidden
+  position: relative
+  left: 25%
+  @include media-breakpoint-down(lg)
+    width: 100%
+    left: 0
+  &::before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: rgba(#000, .4)
+    z-index: 2
+.slider-img__slide
+  height: 100%
+  overflow: hidden
+.slider-img__bg
+  height: 500px
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+  @include media-breakpoint-down(sm)
+    height: 400px
+
+
+.slider-text
+  position: absolute
+  color: $white
+  z-index: 3
+  width: 100%
+  height: 100%
+  @include media-breakpoint-down(lg)
+    height: 500px
+  &__desc
+    font-size: 20px
+    max-width: 600px
+    @include media-breakpoint-down(lg)
+      max-width: 500px
+  &__driver
+    position: absolute
+    top: 0
+    left: 35px
+
+.slider-text__slide
+  display: flex
+  justify-content: center
+  flex-direction: column
+.slider-text__content
+  text-align: left
+  padding-left: 26%
+  padding-top: 25px
+  display: flex
+  flex-direction: column
+  @include media-breakpoint-down(lg)
+    padding-left: 20px
+  @include media-breakpoint-down(sm)
+    padding-top: 0
+    margin-top: -80px
+
+
+
+.slider-text__heading
+  text-transform: uppercase
+  font-size: 60px
+  line-height: 120%
+  font-family: oswald-ash, sans-serif
+  max-width: 600px
+  float: left
+  @include media-breakpoint-down(lg)
+    font-size: 40px
+  span
+    color: $accent
+    white-space: nowrap
+
+  @include media-breakpoint-down(md)
+    font-size: 50px
+    max-width: 500px
+
+  @include media-breakpoint-down(sm)
+    font-size: 28px
+    line-height: 100%
+.slider__btn-block
+  position: absolute
+  display: flex
+  justify-content: center
+  text-align: center
+  width: 25%
+  flex-direction: column
+  top: 50%
+  .btn
+    width: 250px
+    display: block
+    margin: 5px auto
+    text-align: center
+    @include media-breakpoint-down(xl)
+      width: 200px
+      font-size: 14px
+    @include media-breakpoint-down(sm)
+      width: 240px
+  @include media-breakpoint-down(lg)
+    width: 75%
+    top: 75%
+    flex-direction: row
+    justify-content: space-around
+  @include media-breakpoint-down(sm)
+    flex-direction: column
+    width: 100%
+    top: 60%
+
+
+
+
+.slider-bottom
+  position: absolute
+  bottom: 0
+  align-items: center
+  z-index: 5
+  height: $size
+  width: 25%
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+  @include media-breakpoint-down(lg)
+    bottom: -25px
+    width: 300px
+    left: 50%
+    margin-left: -150px
+  .slider-pagination
+    display: flex
+
+    height: $size
+    align-items: center
+    position: relative
+    justify-content: space-between
+    top: 0
+    left: 0
+
+    .swiper-pagination
+      position: relative
+      display: flex
+      .swiper-pagination-bullet
+        width: 10px
+        height: 10px
+        opacity: 1
+        background-color: #fff
+        margin: 0px 5px
+        @include media-breakpoint-down(sm)
+          background-color: #fff
+      .swiper-pagination-bullet-active
+        background-color: $accent
+        position: relative
+        &::before
+          content: ''
+          width: 18px
+          height: 18px
+          border: 1px solid $accent
+          position: absolute
+          border-radius: 100%
+          left: -4px
+          top: -4px
+    @include media-breakpoint-down(sm)
+      height: $size
+      display: none
+  @include media-breakpoint-down(sm)
+    height: $size
+    bottom: -75px
+    width: 100px
+    left: 50%
+    margin-left: -35px
+
+
+
+
+.slider-navigation
+  width: 80%
+  position: relative
+  bottom: 45px
+  .slider-navigation__container
+    position: relative
+    margin: auto
+  .swiper-button-prev, .swiper-button-next
+    width: 32px
+    height: 32px
+    color: $accent
+    background-color: #3c3c3c
+    border-radius: 100%
+    border: 2px solid $accent
+    top: 5px
+    &::after
+      font-size: 10px
+
+    &.swiper-button-disabled
+      opacity: 1
+      color: #8a8a8a
+      border-color: #8a8a8a
+
+
+  .swiper-button-prev
+    left: 0
+
+  .swiper-button-next
+    right: 0
+
+  @include media-breakpoint-down(sm)
+    left: -20px
+
+.slider-pagination-count
+  position: absolute
+  color: $white
+  left: 100px
+  top: 0
+  z-index: 100
+  width: 120px
+  height: $size
+  font-family: oswald-ash, sans-serif
+  font-weight: 500
+  font-size: 24px
+  .current
+    font-size: 40px
+    color: $accent
+    display: inline-block
+    min-width: 42px
+  @include media-breakpoint-down(md)
+    top: 0
+    //right: 0
+    transform: scale(.6)
+  @include media-breakpoint-down(sm)
+    top: 420px
+    right: 0
+    left: auto
+
+.slider-pagination-current
+  right: 50px
+  bottom: 50px
+  z-index: 100
+  position: absolute
+  font-size: 105px
+  font-family: oswald-ash, sans-serif
+  color: $deep
+  &__dot
+    color: $accent
+    -webkit-text-stroke: 1px transparent
+  @include media-breakpoint-down(xl)
+    right: 20px
+    bottom: 20px
+  @include media-breakpoint-down(md)
+    font-size: 50px
+    bottom: 0
+    right: 20px
+  @include media-breakpoint-down(sm)
+    display: none

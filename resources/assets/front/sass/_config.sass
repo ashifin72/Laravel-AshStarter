@@ -1,0 +1,103 @@
+// USER VARIABLES SECTION
+
+
+
+@import "https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+
+// IMPORT SECTION
+
+@import '~bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import '~bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import '~bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+//@import '~bootstrap/scss/button-group.scss' // Optional Bootstrap Grid
+//@import '~bootstrap/scss/buttons' // Optional Bootstrap Grid
+//@import '~bootstrap/scss/pagination'
+@import '~bootstrap/scss/forms'
+//@import '~bootstrap/scss/input-group'
+//@import '~bootstrap/scss/card'
+@import '~bootstrap/scss/alert'
+//@import '~bootstrap/scss/nav'
+//@import '~bootstrap/scss/navbar'
+//@import '~bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+@import 'node_modules/swiper/swiper-bundle'
+// FONTS LOAD SECTION
+@import "general/type"
+// GENERAL DOCUMENT STYLES
+*
+	margin: 0
+	padding: 0
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+html, body
+	min-height: 100vh !important
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	background: $foncolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+.default
+	min-height: 100vh
+	display: flex
+	flex-direction: column
+.fon-color
+	background: $foncolor
+.wraper
+	padding-bottom: 30px
+
+// анимация
+@import "general/anim"
+h2
+	color: $color-title
+	font-size: 27px
+	text-transform: uppercase
+	//margin-top: 20px
+	margin-bottom: 30px
+	text-align: center
+	font-weight: bold
+h1
+	font-weight: 700
+.section-title
+	position: relative
+	margin-bottom: 50px
+	&:before
+		position: absolute
+		content: ''
+		width: $size * 2
+		height: 2px
+		background: $accent
+		bottom: 0
+		left: 50%
+		margin-bottom: -15px
+		margin-left: -$size
+
+a
+	text-decoration: none
+
+//.swiper-button-prev, .swiper-button-next
+//  &:active, button:focus
+//	  outline: none !important
+//.swiper-button-prev, .swiper-button-next
+//	&::-moz-focus-inner
+//	  border: 0 !important
+
+
+.page-enter-active, .page-leave-active
+	transition: opacity .1s !important
+.page-enter, .page-leave-active
+	opacity: 0 !important

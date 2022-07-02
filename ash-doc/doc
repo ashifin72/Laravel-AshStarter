@@ -1,0 +1,209 @@
+Инструкция и команды для разворачивания проекта.
+
+1.  Ставим композер в проект 4 команды если не утановлен глобально
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+ Можно прописать путь к композеру в PHPstorm
+
+2. ставим  Laravel  с указанием версии
+
+  последняя версия
+composer create-project --prefer-dist laravel/laravel blogcreated_at
+
+
+
+3. Установим "базовые" пакеты: laravel-ide-helper, laravel-debugbar;
+composer require --dev barryvdh/laravel-ide-helper
+
+composer  require barryvdh/laravel-debugbar --dev
+
+
+
+Регистрация пакета в файле  config/app.php в секции providers:
+
+Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+Для автоматического обновление документации при обновлении зависимостей проекта - пропишите команду генерации в секцию post-update-cmd файла composer.json:
+
+
+ кеопрруем  файл ide-helper.php в config
+  в нем 28 строка 'include_fluent' => true,
+   после генериуем
+   php artisan ide-helper:generate
+
+   Очистка кеша php artisan route:clear
+
+4.1 Аунтификация в отдельном файле admin
+4,2  Создаем модули
+устанавливаем  модульность
+composer require nwidart/laravel-modules
+php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"
+для автолоада
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Modules\\": "Modules/"
+    }
+  }
+}
+ Про всяк випадок
+ composer dump-autoload
+
+php artisan module:make Blog
+php artisan module:make Shop
+php artisan module:make Menu Portfolio Section Blog Shop
+4.3Подключаем БД и создаем модели + миграции
+
+
+ Создаем моодели и миграции в модулях длят Blog
+php artisan module:make-model Category Blog -m
+php artisan module:make-model Post Blog -m
+php artisan module:make-model Comment Blog -m
+php artisan module:make-model Tag Blog -m
+php artisan module:make-model MenuItem Menu -m
+php artisan module:make-migration create_post_tag_table Blog
+
+
+
+
+php artisan module:make-model MenuItem Menu -m
+
+php artisan module:make-model Section Section -m
+php artisan module:make-model SectionItem Section -m
+
+php artisan module:make-model Portfolio Portfolio -m
+php artisan module:make-model PortfolioCategory Portfolio -m
+php artisan module:make-model PortfolioFeedback Portfolio -m
+
+
+php artisan make:model locale -m
+php artisan make:model Info -m
+
+ зразу  подключаем метатеги
+composer require fomvasss/laravel-meta-tags
+s  config/app.php
+'MetaTag' => Fomvasss\LaravelMetaTags\Facade::class,
+
+
+///////////////////
+
+ Отдельно миграции
+ php artisan make:migration create_user_roles_table --create=user_roles
+ php artisan make:migration choange_portfolios_table --create=portfolios
+
+ php artisan module:make-migration choange_portfolios_table  Portfolio
+
+  Миграции для редактирования таблиц. Добавляем связи
+  php artisan make:migration chahde_info_table --table=infos
+
+
+
+
+5.  Заполняем миграции создаем структуру таблиц
+6. Выполняем миграции
+php artisan migrate
+ 7. Создаем сиды
+
+ php artisan make:seeder LocaleSeeder
+ php artisan make:seeder InfoTableSeeder
+
+php artisan module:make-seeder Post Blog
+php artisan module:make-seeder Comments Blog
+
+
+12.  Делаем посев
+php artisan db:seed
+для отдельной таблицы
+php artisan db:seed --class-BlogPostFactory
+php artisan db:seed --class-LocaleSeeder
+php artisan db:seed --class-BlogCategoriesTableSeeder
+php artisan db:seed --class-LocaleSeeder
+
+ или если были изменения рефреш
+ composer dump-autoload
+ php artisan migrate:refresh --seed
+
+ если нужно ещё накатить тестовые данные, то юзаем ключ --seed:
+ `php artisan migrate:fresh --seed` - удаляет все таблицы, накатывает миграции и заполняет тестовыми данными.
+
+
+13.  Создаем первый контролер RestTestController
+
+php artisan make:controller RestTestController --resource
+
+14.  создаем контроллеры
+ базовый
+php artisan make:controller BaseController
+
+php artisan make:controller Admin/LocaleController
+для вывода постов
+
+php artisan module:make-controller FrontPostsController Blog
+php artisan module:make-controller AdminPostsController Blog
+php artisan module:make-controller AdminCategoryController Blog
+php artisan module:make-controller FrontCategoryController Blog
+
+php artisan module:make-controller AdminCommentsController Blog
+php artisan module:make-controller FrontCommentsController Blog
+
+php artisan module:make-controller AdminTagsController Blog
+php artisan module:make-controller FrontTagsController Blog
+
+php artisan module:make-controller AdminMenuController Menu
+php artisan module:make-controller AdminMenuItemController Menu
+
+php artisan module:make-controller AdminPortfolioController Portfolio
+php artisan module:make-controller AdminPortfolioCategoryController Portfolio
+php artisan module:make-controller AdminPortfolioFeedbackController Portfolio
+
+php artisan module:make-controller AdminSectionController Section
+php artisan module:make-controller AdminSectionItemController Section
+
+php artisan make:controller Admin/InfoController --resource
+
+Аутентификация  Установка фронтенда из коробки
+composer require laravel/ui
+php artisan ui vue --auth
+
+Сброс кеша
+php artisan route:clear
+php artisan view:clear
+php artisan cache:clear
+php artisan config:clear
+php artisan config:cache
+
+
+
+
+ распечатать мартшруты
+php artisan route:list > routes.txt
+
+для контроллера постов
+php artisan make:controller Blog/Admin/PostController -r
+
+ Создание реквеста
+php artisan make:request PorfolioRequest
+
+Создаем observer
+php artisan make:observer PostObserver --model=Modules\Blog\Entities\Post
+php artisan make:observer CategoryObserver --model=Modules\Blog\Entities\Category
+
+
+
+ Обновление после правки composer.json
+ php composer.phar update
+
+  Настройка хранилища
+
+  php artisan storage:link
+   и правим диск хранения
+   'default' => env('FILESYSTEM_DISK', 'public'),
+
+    'public' => [
+               'driver' => 'local',
+               'root' => public_path('uploads'),
+               'url' => env('APP_URL').'/storage',
+               'visibility' => 'public',
+           ],

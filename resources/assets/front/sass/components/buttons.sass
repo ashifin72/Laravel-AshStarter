@@ -1,0 +1,112 @@
+.btn
+  display: inline-block
+  background-color: $accent
+  color: #fff
+  font-size: 15px
+  letter-spacing: 2px
+  text-transform: uppercase
+  border: none
+  position: relative
+  padding: 10px 20px
+  font-weight: 700
+  &::before
+    content: ''
+    position: absolute
+    width: 0
+    height: 100%
+    background-color: $deep
+    top: 0
+    left: 0
+    transition: width .5s ease-out
+  &:hover, &:focus
+    &::before
+      width: 100%
+    span
+      color: #fff
+
+  &-primary
+    background-color: $primary
+    border-color: $primary
+    color: #fff
+    &:hover
+      background-color: darken($primary, 10%)
+
+
+  &-success
+    background-color: $success
+    border-color: $success
+    color: #fff
+    &:hover
+      background-color: darken($success, 10%)
+
+
+  &-danger
+    background-color: $danger
+    border-color: $danger
+    color: #fff
+    &:hover
+      background-color: darken($danger, 10%)
+
+
+  &-warning
+    background-color: $warning
+    border-color: $warning
+    color: #fff
+    &:hover
+      background-color: darken($warning, 10%)
+
+
+  &-dark
+    background-color: $dark
+    border-color: $dark
+    color: #fff
+    &:hover
+      background-color: darken($dark, 10%)
+
+
+  &-outline-primary
+    border-color: $primary
+    color: $primary
+    &:hover
+      background-color: $primary
+
+
+  &-outline-success
+    border-color: $success
+    color: $success
+    &:hover
+      background-color: $success
+
+
+  &-outline-danger
+    border-color: $danger
+    color: $danger
+    &:hover
+      background-color: $danger
+
+
+  &-outline-warning
+    border-color: $warning
+    color: $warning
+    &:hover
+      background-color: $warning
+
+
+  &-outline-dark
+    border-color: $dark
+    color: $dark
+    &:hover
+      background-color: $dark
+
+
+  &-block
+    display: block
+    width: 100%
+  span
+    position: relative
+    z-index: 2
+
+  &-senter
+    display: block
+    margin: auto
+    text-align: center

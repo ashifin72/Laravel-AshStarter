@@ -1,0 +1,85 @@
+.main-nav
+  background: $dark
+  height: 60px
+  position: relative
+  .head-logo
+    position: absolute
+    z-index: 101
+    img
+      height: 40px
+      height: 40px
+      margin-top: 10px
+      margin-left: 25px
+
+  .mobile-but
+    color: $fon2
+    position: absolute
+    right: 0
+    top: 0
+    margin-right: 25px
+    margin-top: 10px
+    font-size: 24px
+    display: none
+    z-index: 101
+  .main-menu
+    display: flex
+    padding-left: 180px
+    li
+      list-style-type: none
+      padding: 5px 15px
+      line-height: 50px
+      a
+        color: $white
+    .dropdown
+      position: relative
+
+      &-toggle
+        display: block
+        &:after
+          content: ''
+          display: inline-block
+          margin-left: 8px
+          vertical-align: 3px
+          border:
+            top: 6px solid
+            right: 6px solid transparent
+            bottom: 0
+            left: 6px solid transparent
+
+      &-menu
+        position: absolute
+        top: 100%
+        left: 0
+        z-index: 100
+        width: 100%
+        background-color: $fon2
+        border: 1px solid #c3c3c3
+        display: none
+        .dropdown-item
+          padding: 7px 10px
+          display: block
+          color: $dark
+          line-height: 30px
+          background-color: transparent
+          &:hover
+            background-color: #9c9c9c
+
+
+
++media-breakpoint-down(md)
+  .block-menu
+    display: none
+    width: 100%
+    margin-left: 0
+  .main-menu
+    flex-direction: column
+    background-color: $dark
+    padding-top: 60px
+    padding-left: 0 !important
+    .dropdown
+      .dropdown-menu
+        width: 100%
+  .main-nav
+    .mobile-but
+      display: block
+

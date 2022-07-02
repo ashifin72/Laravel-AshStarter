@@ -1,0 +1,147 @@
+//section TABS
+.tabs
+  &__header
+    background: $grin
+    color: $white2
+    h2
+      font-size: 49px
+      text-transform: uppercase
+      position: relative
+      text-align: left
+      color: $white
+      font-weight: bold
+      span
+        font-size: 38px
+        display: inline-block
+        color: $accent
+        letter-spacing: 3px
+      .tabs__title
+        display: block
+        color: $white2
+      &:before
+        content: ''
+        position: absolute
+        background: $accent
+        width: 200px
+        height: 2px
+        right: 0
+        margin-right: 50px
+        top: 50%
+        margin-top: -2px
+  &__img_header
+    height: 400px
+    width: 100%
+  &__descript
+    font-size: 20px
+    text-align: right
+    padding-top: 30px
+    padding-right: 50px
+    color: $textcolor2
+  &__nav
+    position: relative
+  &__menu
+    position: absolute
+    left: 0px
+    bottom: 10px
+    a
+      color: $white
+      text-transform: uppercase
+      margin-right: 10px
+      font-size: 15px
+      cursor: pointer
+      text-decoration: none
+      &:hover
+        color: $white2
+    .tab-item--active
+      color: $white3
+  &__card
+    width: 100%
+    display: -webkit-box
+    display: -webkit-flex
+    display: -ms-flexbox
+    background: $foncolor3
+    //display: flex
+    //padding-top: 50px
+    -webkit-transition: 0.3s
+    transition: 0.3s
+    display: none
+  &__content
+    position: absolute
+    padding: 20px
+    border: 1px solid $color-title
+    width: 135%
+    //@include media-breakpoint-down(xl)
+    //  width: 620px
+    z-index: 2
+    left: 50px
+    top: 75px
+    background: $white
+    border-radius: $radius * 2
+  &__title-block
+    //width: 100%
+    height: 500px
+    background-size: cover
+    z-index: 1
+    h3
+      font-size: 50px
+      text-align: center
+      margin-top: 120px
+      text-transform: uppercase
+      margin-left: 130px
+      color: $grin
+      font-weight: bold
+    .btn-order
+      text-align: center
+      text-transform: uppercase
+      font-size: 14px
+      line-height: 30px
+      color: $white
+      background: $accent
+      width: 300px
+      position: absolute
+      bottom: 40%
+      left: 50%
+      margin-left: -80px
+      padding: 10px 0
+      &:hover
+        text-decoration: none
+  .active-tab
+    display: -webkit-box
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    ransition: 1s
+.tab
+  max-width: 700px
+  &-panel
+    display: flex
+    width: 100%
+    min-height: 50px
+    border: 1px solid rgba(0,0,0, .2)
+    border-radius: 4px 4px 0 0
+
+  &-item
+    font-size: 18px
+    line-height: 27px
+    padding: 10px 20px
+    border-right: 1px solid rgba(0,0,0, .2)
+    cursor: pointer
+    &:last-child
+      border-right: none
+
+    &--active
+      background-color: rgba(0,0,0, .1)
+
+
+  &-content
+    display: none
+    padding: 20px
+    border: 1px solid rgba(0,0,0, .2)
+    border-top: none
+    border-radius: 0 0 4px 4px
+
+    &--active
+      display: block
+      transition: 1s
+
+
