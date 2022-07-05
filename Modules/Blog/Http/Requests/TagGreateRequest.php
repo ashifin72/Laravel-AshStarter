@@ -26,7 +26,7 @@ class TagGreateRequest extends FormRequest
         return [
             'title_ru' => 'nullable|min:3|max:200|unique:tags',
             'title_uk' => 'required|min:3|max:200|unique:tags',
-            'slug' => 'max:200|unique:tags',
+//            'slug' => 'max:200|unique:tags',
 
         ];
     }

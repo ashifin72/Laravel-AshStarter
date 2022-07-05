@@ -44,14 +44,34 @@
                     </a>
 
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.menus.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-bars"></i>--}}
-{{--                        <p>--}}
-{{--                            {{__('admin.menus_site')}}--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                <li class="nav-item">
+                    <a href="{{asset('/file-manager?type=Images')}}" target="_blank" class="nav-link">
+                        <i class="nav-icon fas fa-images"></i>
+                        <p>
+                            {{__('admin.image-manager')}}
+
+                        </p>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a href="{{asset('/file-manager?type=Files')}}" target="_blank" class="nav-link">
+                        <i class="nav-icon far fa-file"></i>
+                        <p>
+                            {{__('admin.file-manager')}}
+
+                        </p>
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.menus.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-bars"></i>
+                        <p>
+                            {{__('admin.menus_site')}}
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-bars"></i>
@@ -63,26 +83,32 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('admin.posts.index')}}" class="nav-link">
-                                <i class="far fa-address-card"></i>
+                                <i class="far fa-address-card nav-icon"></i>
                                 <p>{{__('admin.article_blog')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.categories.index')}}" class="nav-link">
-                                <i class="far fa-calendar-alt"></i>
+                                <i class="far fa-calendar-alt nav-icon"></i>
                                 <p>{{__('admin.categories_blog')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.tags.index')}}" class="nav-link">
-                                <i class="fas fa-tags"></i>
+                                <i class="fas fa-tags nav-icon"></i>
                                 <p>{{__('blog.tags')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.comments.index')}}" class="nav-link">
-                                <i class="far fa-comments"></i>
+                                <i class="far fa-comments nav-icon"></i>
                                 <p>{{__('admin.title_comments')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.pages')}}" class="nav-link">
+                                <i class="far fa-address-card nav-icon"></i>
+                                <p>{{__('admin.pages')}}</p>
                             </a>
                         </li>
 
@@ -126,28 +152,28 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-{{--                    <ul class="nav nav-treeview">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('admin.products.index')}}" class="nav-link">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>{{__('shop.shop_article')}}</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('admin.product_categories.index')}}" class="nav-link">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>{{__('shop.shop_categories')}}</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('admin.currencies.index')}}" class="nav-link">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>Валюта</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin.products.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('shop.offers')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.product_categories.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>{{__('shop.shop_categories')}}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.currencies.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Валюта</p>
+                            </a>
+                        </li>
 
 
-{{--                    </ul>--}}
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('admin.sections.index')}}" class="nav-link">

@@ -32,6 +32,8 @@ Route::group(['middleware' => ['role:admin', 'auth']], function() {    // Admin
             Route::resource('comments', 'AdminCommentsController')
                 ->except('show')
                 ->names('admin.comments');
+            Route::get('pages', 'AdminPostsController@indexPages')
+                ->name('admin.pages');
         });
     });
 

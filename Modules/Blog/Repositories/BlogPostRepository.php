@@ -21,10 +21,15 @@ class BlogPostRepository extends CoreRepository
         return Model::class;
     }
     /**
+     * виводими пости які по id=1 назначили статичними сторінками
+     */
+
+
+    /**
      * выводим список  постов с пагинацией
      */
 
-    public function getAllWithPostPaginate($num = 20)
+    public function getAllWithPostPaginate($num = 25, $sign = '>')
     {
         $columns = [
             'id',
@@ -45,6 +50,7 @@ class BlogPostRepository extends CoreRepository
             ->startConditions()
             ->select($columns)
             ->orderBy('id', 'DESC')
+            ->where('category_id', $sign, 1)//  исключаем статичные страницы
             ->with(["category:id,$column"])// жадная загрузка
             ->paginate($num);
 

@@ -62,10 +62,10 @@ class Post extends Model
 //    }
     public function sluggable(): array
     {
-        $locale = App::getLocale();
+
         return [
             'slug' => [
-                'source' => 'title'. $locale
+                'source' => 'title'
             ]
         ];
     }

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Modules\Menu\Http\Controllers\Api\ApiMenuController;
+use Modules\Portfolio\Http\Controllers\Api\ApiPortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/menu', function (Request $request) {
+Route::middleware('auth:api')->get('/menus', function (Request $request) {
     return $request->user();
 });
+
+Route::get('menu/top', [ApiMenuController::class, 'topMenu']);
+
+

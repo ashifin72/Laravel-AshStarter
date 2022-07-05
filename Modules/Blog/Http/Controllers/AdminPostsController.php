@@ -40,8 +40,14 @@ class AdminPostsController extends AdminBaseController
     public function index()
     {
         MetaTag::setTags(['title' => __('admin.blog_articles')]);
-        $items = $this->blogPostRepository->getAllWithPostPaginate(10);
+        $items = $this->blogPostRepository->getAllWithPostPaginate(25, '>');
         return view('blog::admin.posts.index', compact('items'));
+    }
+    public function indexPages()
+    {
+        MetaTag::setTags(['title' => __('admin.blog_articles')]);
+        $items = $this->blogPostRepository->getAllWithPostPaginate(25, '=');
+        return view('blog::admin.posts.pages', compact('items'));
     }
 
     /**

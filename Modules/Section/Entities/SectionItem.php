@@ -3,7 +3,7 @@
   namespace Modules\Section\Entities;
 
   use App;
-  use Cviebrock\EloquentSluggable\Sluggable;
+//  use Cviebrock\EloquentSluggable\Sluggable;
   use Illuminate\Database\Eloquent\Model;
   use Illuminate\Database\Eloquent\Factories\HasFactory;
   use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,17 +12,17 @@
   {
     use HasFactory;
     use SoftDeletes;
-    use Sluggable;
-
-      public function sluggable(): array
-      {
-          $locale = App::getLocale();
-          return [
-              'slug' => [
-                  'source' => 'title'. $locale
-              ]
-          ];
-      }
+//    use Sluggable;
+//
+//      public function sluggable(): array
+//      {
+//          $locale = App::getLocale();
+//          return [
+//              'slug' => [
+//                  'source' => 'title'
+//              ]
+//          ];
+//      }
 
     protected $fillable = [
       'id',

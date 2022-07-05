@@ -39,15 +39,7 @@
         </div>
       </form>
       <br>
-      <form class="admin__btn-destroy" method="post" action="{{route('admin.posts.destroy', $item->id)}}">
-        @method('DELETE')
-        @csrf
-        <div class="row justify-content-start" style="margin-top: 25px">
-          <button type="submit" onclick=' confirm("Точно видалити?") ? this.form.submit() : ""'
-                  class="btn btn-outline-danger">{{__('admin.remove')}}</button>
-        </div>
-
-      </form>
+        <x-form.destroy :route="route('admin.posts.destroy', $item->id)" />
       <section class="content">
         <!-- Small boxes (Stat box) -->
 

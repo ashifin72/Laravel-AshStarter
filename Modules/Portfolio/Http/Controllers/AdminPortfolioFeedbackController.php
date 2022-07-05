@@ -89,9 +89,11 @@ class AdminPortfolioFeedbackController extends AdminBaseController
 
       $this->feedbackRepository->issetItem($id);
       $data = $request->input();
+//      dd($data);
       $result = $item
         ->fill($data)
         ->save();
+
       return $this->feedbackRepository
         ->resultRecording($result, 'admin.portfolio_feedback.index');
     }

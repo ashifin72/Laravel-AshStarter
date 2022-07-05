@@ -13,10 +13,10 @@ class Tag extends Model
     use Sluggable;
     public function sluggable(): array
     {
-        $locale = App::getLocale();
+
         return [
             'slug' => [
-                'source' => 'title'. $locale
+                'source' => 'title'
             ]
         ];
     }

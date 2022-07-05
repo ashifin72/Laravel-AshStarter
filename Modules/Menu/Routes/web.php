@@ -11,6 +11,21 @@
 |
 */
 
-Route::prefix('menu')->group(function() {
-    Route::get('/', 'MenuController@index');
+
+
+
+Route::group(['middleware' => ['role:admin', 'auth']], function() {    // Admin
+//Переключение языков admin
+    Route::get('locale/{locale}', '\App\Http\Controllers\Admin\LocaleController@changeLocale')->name('locale');
+    Route::middleware(['set_locale'])->group(function () {
+        Route::prefix('admin')->group(function (){
+            Route::resource('menus', 'AdminMenuController')
+                ->except('show')
+                ->names('admin.menus');
+            Route::resource('menu-items', 'AdminMenuItemController')
+                ->except('show', 'index')
+                ->names('admin.menu_items');
+        });
+    });
+
 });

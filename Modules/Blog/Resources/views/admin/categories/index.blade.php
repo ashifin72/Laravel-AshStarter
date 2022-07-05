@@ -42,26 +42,9 @@
                             <td @if(in_array($item->parent_id, [0, 1])) style="color:#cccccc" @endif>
                                 {{ $item->parentTitle }}
                             </td>
+                            <td class="project-actions text-right">
+                                <x-form.button-block :item="$item" type="categories" :show="false" />
 
-
-                            <td>
-                                <a class="btn btn-outline-success"
-                                   href="{{route('admin.categories.edit', $item->id )}}">
-                                    <i class="fas fa-pencil-alt"></i>
-                                </a>
-
-                            </td>
-                            <td>
-                                <form
-                                    action="{{ route('admin.categories.destroy', $item->id) }}"
-                                    method="post" class="float-left">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger btn-sm"
-                                            onclick="return confirm('Подтвердите удаление')">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
                             </td>
                         </tr>
                     @endif

@@ -3,9 +3,9 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         @component('admin.components.breadcrumb')
-            @slot('title') {{__('portfolio::admin.portfolio_categories')}} @endslot
+            @slot('title') {{__('portfolio.portfolio_categories')}} @endslot
             @slot('parent') {{__('admin.home')}} @endslot
-            @slot('active') {{__('portfolio::admin.portfolio_categories')}} @endslot
+            @slot('active') {{__('portfolio.portfolio_categories')}} @endslot
         @endcomponent
 
 
@@ -17,7 +17,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">{{__('portfolio::admin.portfolio_categories')}}</h3>
+                <h3 class="card-title">{{__('portfolio.portfolio_categories')}}</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
@@ -38,7 +38,8 @@
                         <th>{{__('admin.sort')}}</th>
                         <th>{{__('admin.status')}}</th>
 
-                        <th><a class="btn btn-outline-success btn-create-header mr-2" href="{{route('admin.portfolio_categories.create')}}">{{__('admin.add')}}</a></th>
+                        <th><a class="btn btn-outline-success btn-create-header mr-2"
+                               href="{{route('admin.portfolio_categories.create')}}">{{__('admin.add')}}</a></th>
 
                     </tr>
                     </thead>
@@ -59,28 +60,7 @@
 
 
                             <td class="project-actions text-right">
-                                <a class="btn btn-primary btn-sm" href="#">
-                                    <i class="fas fa-folder">
-                                    </i>
-                                    View
-                                </a>
-                                <a class="btn btn-info btn-sm" href="{{route('admin.portfolio_categories.edit', $item->id )}}">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <form
-                                    action="{{ route('admin.portfolio_categories.destroy', $item->id) }}"
-                                    method="post" class="float-right ml-2">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Подтвердите удаление')">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                    </button>
-                                </form>
-
+                                <x-form.button.block :item="$item"  type="portfolio_categories" :show="false" />
                             </td>
 
                         </tr>

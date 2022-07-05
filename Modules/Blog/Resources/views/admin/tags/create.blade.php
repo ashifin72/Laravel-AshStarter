@@ -21,29 +21,7 @@
         <form method="POST" action="{{route('admin.tags.store')}}" enctype="multipart/form-data">
 
             @csrf
-            <div class="row">
-                <div class="col-sm-8">
-                    @forelse($locales as $locale)
-                        <div class="form-group">
-                            <label for="title">{{__('admin.name')}} {{$locale->local}}</label>
-                            @php
-                                $title = 'title_' . $locale->local;
-                            @endphp
-                            <input type="text" name="title_{{$locale->local}}" value="{{$item->$title}}"
-                                   id="title" class="form-control" required>
-                        </div>
-
-                    @empty
-                        <h4>{{__('admin.none')}}</h4>
-                    @endforelse
-                </div>
-
-
-
-
-            </div>
-
-            <button type="submit" class="btn btn-outline-success">{{__('admin.save')}}</button>
+            @include('blog::admin.tags.form')
         </form>
 
 

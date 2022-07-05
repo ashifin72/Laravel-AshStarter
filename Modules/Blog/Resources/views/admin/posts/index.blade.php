@@ -85,27 +85,7 @@
                             </td>
 
                             <td class="project-actions text-right">
-                                <a class="btn btn-primary btn-sm" href="#">
-                                    <i class="fas fa-folder">
-                                    </i>
-                                    View
-                                </a>
-                                <a class="btn btn-info btn-sm" href="{{route('admin.posts.edit', $item->id)}}">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Edit
-                                </a>
-                                <form
-                                    action="{{ route('admin.posts.destroy', $item->id) }}"
-                                    method="post" class="float-right ml-2">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Подтвердите удаление')">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                    </button>
-                                </form>
+                                <x-form.button-block :item="$item" type="posts" :show="false" />
 
                             </td>
                         </tr>
